@@ -2,7 +2,7 @@
   - spring boot와 'org.gitlab4j' 라이브러리를 이용한 gitlab api 예제 입니다.
   
   
-###개발환경
+### 개발환경
 
   |도구|Version|
   |:---:|:---:|
