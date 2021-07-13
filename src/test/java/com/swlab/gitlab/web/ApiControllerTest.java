@@ -1,9 +1,6 @@
 package com.swlab.gitlab.web;
 
-import com.swlab.gitlab.config.properties.GitlabProperties;
-
 import lombok.extern.slf4j.Slf4j;
-import org.gitlab4j.api.GitLabApi;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
