@@ -3,3 +3,7 @@
 
 # IntelliJ IDEA
 .idea
+
+#
+/src/main/resources/application-gitlab.yml
+/src/test/java/com/swlab/gitlab/config/properties/GitlabPropertiesTest.java
