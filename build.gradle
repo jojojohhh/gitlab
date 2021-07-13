@@ -17,10 +17,11 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-configuration-processor:2.5.2')
     implementation('org.gitlab4j:gitlab4j-api:4.17.0')
-    implementation('org.slf4j:slf4j-api:2.0.0-alpha2')
-    compileOnly('org.projectlombok:lombok')
-    annotationProcessor('org.projectlombok:lombok')
+    implementation('org.projectlombok:lombok:1.18.18')
+    compileOnly('org.projectlombok:lombok:1.18.18')
     annotationProcessor('org.springframework.boot:spring-boot-configuration-processor')
+    annotationProcessor('org.projectlombok:lombok:1.18.18')
+    testAnnotationProcessor('org.projectlombok:lombok')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
