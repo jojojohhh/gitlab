@@ -25,16 +25,34 @@ public class ApiControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Test
-    public void getGitlabVersionTest() throws Exception {
-        String url = "/api/v1/gitlab/version";
+    private final String BASEURL = "/api/v1";
 
+    @Test
+    public void getGitLabVersionTest() throws Exception {
+        String url = BASEURL + "/gitlab/version";
+        expectResponseIsOk(url);
+    }
+
+    @Test
+    public void getGitLabProjectsTest() throws Exception {
+        String url = BASEURL + "/gitlab/projects";
+        expectResponseIsOk(url);
+    }
+
+    @Test
+    public void getGitLabUsersTest() throws Exception {
+        String url = BASEURL + "/gitlab/users";
+        expectResponseIsOk(url);
+    }
+
+    public void expectResponseIsOk(String url) throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(url)
-            .contentType(MediaType.APPLICATION_JSON))
+                .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(result -> {
                     MockHttpServletResponse res = result.getResponse();
-                    log.info(res.getContentAsString());
+                    log.info("Status: " + res.getStatus());
+                    log.info("response: " + res.getContentAsString());
                 });
     }
 
