@@ -31,25 +31,26 @@ public class ApiController {
         this.gitlabProperties = gitlabProperties;
     }
 
-    public GitLabApi getGitLabApi() {
-        return new GitLabApi(gitlabProperties.getUrl(), gitlabProperties.getPersonalAccessToken());
+    public void setGitLabApi() {
+        this.gitLabApi = new GitLabApi(gitlabProperties.getUrl(), gitlabProperties.getPersonalAccessToken());
+        this.gitLabApi.setRequestTimeout(1000, 5000);
     }
 
     @GetMapping("/gitlab/version")
     public ApiResult<GitLabApi.ApiVersion> getGitLabApiVersion() {
-        this.gitLabApi = getGitLabApi();
+        setGitLabApi();
         return success(gitLabApi.getApiVersion());
     }
 
     @GetMapping("/gitlab/projects")
     public ApiResult<List<Project>> getGitLabProjects() throws GitLabApiException {
-        this.gitLabApi = getGitLabApi();
+        setGitLabApi();
         return success(gitLabApi.getProjectApi().getProjects());
     }
 
     @GetMapping("/gitlab/users")
     public ApiResult<List<User>> getGitLabUsers() throws GitLabApiException {
-        this.gitLabApi = getGitLabApi();
+        setGitLabApi();
         return success(gitLabApi.getUserApi().getActiveUsers());
     }
 }
