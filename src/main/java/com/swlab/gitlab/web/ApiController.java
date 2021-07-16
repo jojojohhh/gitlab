@@ -11,6 +11,7 @@ import org.gitlab4j.api.models.Project;
 import org.gitlab4j.api.models.User;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,6 +47,12 @@ public class ApiController {
     public ApiResult<List<Project>> getGitLabProjects() throws GitLabApiException {
         setGitLabApi();
         return success(gitLabApi.getProjectApi().getProjects());
+    }
+
+    @GetMapping("/gitlab/projects/{search}")
+    public ApiResult<List<Project>> getGitLabProjects(@PathVariable String search) throws GitLabApiException {
+        setGitLabApi();
+        return success(gitLabApi.getProjectApi().getProjects(search));
     }
 
     @GetMapping("/gitlab/users")
