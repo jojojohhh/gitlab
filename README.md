@@ -11,7 +11,3 @@
   |DB|H2DB|
   |Build|gradle 6.8|
   |OS|Window 10|
-
-
-## To-Do
-  1. 각 API의 에러 응답에 대한 예외처리
